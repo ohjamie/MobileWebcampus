@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Student Progress Tracker</string>
+    <string name="add_new_term">ADD NEW TERM</string>
+
+    <string-array name="allTerms">
+        <item>Terms</item>
+        <item>Term2</item>
+        <item>Term3</item>
+        <item>Term4</item>
+    </string-array>
+
+    <string-array name="allCourses">
+        <item>Courses Go Here</item>
+    </string-array>
+
+    <string-array name="allMentors">
+        <item>Mentors Go Here</item>
+    </string-array>
+
+</resources>
