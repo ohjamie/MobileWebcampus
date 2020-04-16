@@ -4,23 +4,23 @@ import java.time.LocalDateTime;
 // TODO: Do I need the termID id DAO is implemented?
 
 public class Term {
-    // long termId;
+    String termId;
     String title;
     LocalDateTime startDate;
     LocalDateTime endDate;
     int current;
 
     public Term() {
-        // setTermId(termId);
+        setTermId(termId);
         setTitle(title);
         setStartDate(startDate);
         setEndDate(endDate);
         setCurrent(current);
     }
 
-    /**public long getTermId() {
+    public String getTermId() {
         return termId;
-    }*/
+    }
     public String getTitle() {
         return title;
     }
@@ -34,9 +34,9 @@ public class Term {
         return current;
     }
 
-    /**public void setTermId(long termId) {
+    public void setTermId(String termId) {
         this.termId = termId;
-    }*/
+    }
     public void setTitle(String title) {
         this.title = title;
     }

@@ -8,7 +8,7 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:id="@+id/termListView"
+        android:id="@+id/termListVieww"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
@@ -18,23 +18,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:texColor="#000"
+            android:textColor="#000"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginVertical="10dp"
-            android:text="Term X"
+            android:text="@string/termNumber"
             />
 
         <TextView
-            android:id="@+id/termDescription"
+            android:id="@+id/termTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:texColor="#a9a9a9"
-            android:layout_marginLeft="20dp"
+            android:textColor="#a9a9a9"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
-            android:text="Description"
+            android:text="@string/term_title"
             />
 
     </RelativeLayout>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Student Progress Tracker</string>
     <string name="add_new_term">ADD NEW TERM</string>
+    <string name="term_title">Term Title</string>
+    <string name="termNumber">Term X</string>
 
     <string-array name="allTerms">
         <item>Terms</item>

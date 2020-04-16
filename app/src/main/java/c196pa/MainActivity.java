@@ -4,8 +4,17 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+import adapters.TermListAdapter;
 
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView mRecyclerView;
+    TermListAdapter termListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +24,40 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("MainActivity", "Hello World!!!!!");
 
-        /**
-        RecyclerView termListView;
-        String[] allTerms;
+        mRecyclerView = findViewById(R.id.termListVieww);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Resources res = getResources();
-        termListView = (RecyclerView) findViewById(R.id.termList);
-        allTerms = res.getStringArray(R.array.allTerms);
+        termListAdapter = new TermListAdapter(this, getMyList());
+    }
 
-        termListView.setAdapter(new ArrayAdapter<String>(this, R.layout.termlist_view, allTerms));*/
+    private ArrayList<com.example.c196pa.Term> getMyList() {
+
+        ArrayList<com.example.c196pa.Term> terms = new ArrayList<>();
+
+        com.example.c196pa.Term m = new com.example.c196pa.Term();
+        m.setTermId("1");
+        m.setTitle("First Semester");
+        // m.setStartDate(LocalDateTime.now());
+        // m.setEndDate(LocalDateTime.now().plusMonths(6));
+        // m.setCurrent(1);
+        terms.add(m);
+
+        m = new com.example.c196pa.Term();
+        m.setTermId("2");
+        m.setTitle("Second Semester");
+        // m.setStartDate(LocalDateTime.now());
+        // m.setEndDate(LocalDateTime.now().plusMonths(6));
+        // m.setCurrent(1);
+        terms.add(m);
+
+        m = new com.example.c196pa.Term();
+        m.setTermId("3");
+        m.setTitle("Third Semester");
+        // m.setStartDate(LocalDateTime.now());
+        // m.setEndDate(LocalDateTime.now().plusMonths(6));
+        // m.setCurrent(1);
+        terms.add(m);
+
+        return terms;
     }
 }
