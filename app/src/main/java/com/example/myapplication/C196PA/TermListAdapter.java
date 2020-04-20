@@ -1,4 +1,4 @@
-package adapters;
+package com.example.myapplication.C196PA;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,30 +10,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196pa.R;
 import com.example.c196pa.Term;
+import com.example.myapplication.TermListHolder;
+import com.example.myapplication.TermModel;
 
 import java.util.ArrayList;
 
 
-public class TermListAdapter extends RecyclerView.Adapter<controller.TermListController> {
+public class TermListAdapter extends RecyclerView.Adapter<TermListHolder> {
 
     Context c;
-    ArrayList<Term> terms;
+    ArrayList<TermModel> terms;
 
-    public TermListAdapter(Context c, ArrayList<Term> terms) {
+    public TermListAdapter(Context c, ArrayList<TermModel> terms) {
         this.c = c;
         this.terms = terms;
     }
 
     @NonNull
     @Override
-    public controller.TermListController onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TermListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.termlist_view, null);
 
-        return new controller.TermListController(view); // return view to controller class
+        return new TermListHolder(view); // return view to controller class
     }
 
     @Override
-    public void onBindViewHolder(@NonNull controller.TermListController holder, int position) {
+    public void onBindViewHolder(@NonNull TermListHolder holder, int position) {
         holder.mTermNumber.setText("" + terms.get(position).getTermId());
         holder.mTermTitle.setText(terms.get(position).getTitle());
     }

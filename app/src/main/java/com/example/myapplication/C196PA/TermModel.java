@@ -1,4 +1,4 @@
-package com.example.c196pa;
+package com.example.myapplication.C196PA;
 
 // TODO: Do I need the termID id DAO is implemented?
 // TODO: Create DataBase folder with DB JDBC

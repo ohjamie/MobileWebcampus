@@ -1,14 +1,14 @@
-package com.example.c196pa;
+package com.example.myapplication.C196PA;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.c196pa.R;
+import com.example.myapplication.TermListAdapter;
+import com.example.myapplication.TermModel;
 
 import java.util.ArrayList;
-
-import adapters.TermListAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,21 +28,22 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(termListAdapter);
     }
 
-    private ArrayList<com.example.c196pa.TermModel> getMyList() {
+    // TODO: Remove test values once database is built
+    private ArrayList<TermModel> getMyList() {
 
-        ArrayList<com.example.c196pa.Term> terms = new ArrayList<>();
+        ArrayList<TermModel> terms = new ArrayList<>();
 
-        com.example.c196pa.Term m = new com.example.c196pa.Term();
+        TermModel m = new TermModel();
         m.setTermId(1);
         m.setTitle("First Semester");
         terms.add(m);
 
-        m = new com.example.c196pa.Term();
+        TermModel m = new TermModel();
         m.setTermId(2);
         m.setTitle("Second Semester");
         terms.add(m);
 
-        m = new com.example.c196pa.Term();
+        TermModel m = new TermModel();
         m.setTermId(3);
         m.setTitle("Third Semester");
         terms.add(m);
