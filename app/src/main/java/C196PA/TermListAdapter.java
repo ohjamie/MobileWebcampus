@@ -13,9 +13,8 @@ import com.example.c196pa.Term;
 
 import java.util.ArrayList;
 
-import controller.TermList;
 
-public class TermListAdapter extends RecyclerView.Adapter<TermList> {
+public class TermListAdapter extends RecyclerView.Adapter<controller.TermListController> {
 
     Context c;
     ArrayList<Term> terms;
@@ -27,15 +26,15 @@ public class TermListAdapter extends RecyclerView.Adapter<TermList> {
 
     @NonNull
     @Override
-    public TermList onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public controller.TermListController onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.termlist_view, null);
 
-        return new TermList(view); // return view to controller class
+        return new controller.TermListController(view); // return view to controller class
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TermList holder, int position) {
-        holder.mTermNumber.setText(terms.get(position).getTermId());
+    public void onBindViewHolder(@NonNull controller.TermListController holder, int position) {
+        holder.mTermNumber.setText("" + terms.get(position).getTermId());
         holder.mTermTitle.setText(terms.get(position).getTitle());
     }
 

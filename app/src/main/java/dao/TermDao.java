@@ -1,6 +1,7 @@
-/** import com.example.c196pa.Term;
 
-import java.time.LocalDateTime;
+
+import com.example.c196pa.Term;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,26 +9,17 @@ import java.util.Optional;
 
 import dao.Dao;
 
-imort com.example.c196pa.Term;
-
-i**mport com.example.c196pa.Term;
-
-/package dao;
-
 public class TermDao implements Dao<Term> {
 
     private List<Term> allTerms = new ArrayList<>();
 
-    // change this to initialize to get from db later
-    // TODO: implement JDBC
-
     public TermDao() {
-        allTerms.add(1, "Last Semester", LocalDateTime.now(), LocalDateTime.now().plusWeeks(3), 1);
+        // allTerms.add(new Term(1, "Last Semester"));
     }
 
     @Override
-    public Optional<Term> get(long id) {
-        return Optional.ofNullable(allTerms.get((int) id));
+    public Optional<Term> get(int id) {
+        return Optional.ofNullable(allTerms.get(id));
     }
 
     @Override
@@ -43,9 +35,7 @@ public class TermDao implements Dao<Term> {
     @Override
     public void update(Term term, String[] params) {
         term.setTitle(Objects.requireNonNull(params[0], "Cannot be null"));
-        term.setStartDate(Objects.requireNonNull(params[0], "Cannot be null"));
-        term.setEndDate((Objects.requireNonNull(params[0], "Cannot be null")));
-        term.setCurrent(Objects.requireNonNull(params[0], "Cannot be null"));
+        allTerms.add(term);
     }
 
     @Override
@@ -53,4 +43,3 @@ public class TermDao implements Dao<Term> {
         allTerms.remove(term);
     }
 }
-*/

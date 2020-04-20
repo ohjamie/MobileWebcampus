@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.c196pa.R;
 
-public class TermList extends RecyclerView.ViewHolder {
+public class TermListHolder extends RecyclerView.ViewHolder {
 
     public TextView mTermNumber;
     public TextView mTermTitle;
 
-    public TermList(@NonNull View itemView) {
+    public TermListController(@NonNull View itemView) {
         super(itemView);
 
         this.mTermNumber = itemView.findViewById(R.id.termNumber);
