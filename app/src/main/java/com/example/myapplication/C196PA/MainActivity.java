@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(termListAdapter);
     }
 
-    private ArrayList<com.example.c196pa.Term> getMyList() {
+    private ArrayList<com.example.c196pa.TermModel> getMyList() {
 
         ArrayList<com.example.c196pa.Term> terms = new ArrayList<>();
 
