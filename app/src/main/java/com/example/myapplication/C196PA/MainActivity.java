@@ -4,10 +4,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.c196pa.R;
-import com.example.myapplication.TermListAdapter;
-import com.example.myapplication.TermModel;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = findViewById(R.id.termListVieww);
+        mRecyclerView = findViewById(R.id.cardView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         termListAdapter = new TermListAdapter(this, getMyList());
@@ -38,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
         m.setTitle("First Semester");
         terms.add(m);
 
-        TermModel m = new TermModel();
+        m = new TermModel();
         m.setTermId(2);
         m.setTitle("Second Semester");
         terms.add(m);
 
-        TermModel m = new TermModel();
+        m = new TermModel();
         m.setTermId(3);
         m.setTitle("Third Semester");
         terms.add(m);

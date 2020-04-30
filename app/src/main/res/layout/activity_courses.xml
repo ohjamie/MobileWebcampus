@@ -8,13 +8,13 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:id="@+id/termListVieww"
+        android:id="@+id/coursesActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/termNumber"
+            android:id="@+id/courseNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
@@ -22,11 +22,11 @@
             android:textStyle="bold"
             android:layout_marginStart="20dp"
             android:layout_marginVertical="10dp"
-            android:text="@string/termNumber"
+            android:text="@string/course_num"
             />
 
         <TextView
-            android:id="@+id/termTitle"
+            android:id="@+id/courseTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -34,7 +34,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
-            android:text="@string/term_title"
+            android:text="@string/course_title"
             />
 
     </RelativeLayout>

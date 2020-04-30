@@ -1,6 +1,7 @@
 package com.example.myapplication.C196PA;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,13 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.c196pa.R;
-import com.example.c196pa.Term;
-import com.example.myapplication.TermListHolder;
-import com.example.myapplication.TermModel;
-
 import java.util.ArrayList;
-
 
 public class TermListAdapter extends RecyclerView.Adapter<TermListHolder> {
 
@@ -29,15 +24,27 @@ public class TermListAdapter extends RecyclerView.Adapter<TermListHolder> {
     @NonNull
     @Override
     public TermListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.termlist_view, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_terms, null);
 
         return new TermListHolder(view); // return view to controller class
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TermListHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final TermListHolder holder, int position) {
         holder.mTermNumber.setText("" + terms.get(position).getTermId());
         holder.mTermTitle.setText(terms.get(position).getTitle());
+
+        holder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemClickListener(View v, int position) {
+                String gTitle = terms.get(position).getTitle();
+
+                Intent intent = new Intent(c, CourseActivity.class);
+                intent.putExtra("iTitle", gTitle);
+                c.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
