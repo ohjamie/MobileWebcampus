@@ -1,9 +1,20 @@
-package com.example.myapplication.C196PA;
+package com.example.myapplication.database.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity (tableName = "courses")
 public class CourseModel {
 
+    @PrimaryKey (autoGenerate = true)
     int courseId;
+
     String courseTitle;
+
+    public CourseModel() {
+        setCourseId(courseId);
+        setCourseTitle(courseTitle);
+    }
 
     public int getCourseId() {
         return courseId;

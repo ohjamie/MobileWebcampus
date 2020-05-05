@@ -1,41 +1,26 @@
-package com.example.myapplication.C196PA;
+package com.example.myapplication.database.dao;
 
-import java.util.ArrayList;
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+import com.example.myapplication.database.model.TermModel;
+
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import dao.Dao;
 
-public class TermDao implements Dao<TermModel> {
+@Dao
+public interface TermDao {
+    @Insert
+    void insert(TermModel term);
 
-    private List<TermModel> allTerms = new ArrayList<>();
+    @Update
+    void update(TermModel term);
 
-    public TermDao() {
-    }
+    @Delete
+    void delete(TermModel term);
 
-    @Override
-    public Optional<TermModel> get(int id) {
-        return Optional.ofNullable(allTerms.get(id));
-    }
-
-    @Override
-    public List<TermModel> getAll() {
-        return allTerms;
-    }
-
-    @Override
-    public void save(TermModel term) {
-        allTerms.add(term);
-    }
-
-    @Override
-    public void update(TermModel term, String[] params) {
-        term.setTitle(Objects.requireNonNull(params[0], "Cannot be null"));
-        allTerms.add(term);
-    }
-
-    @Override
-    public void delete(TermModel term) {
-        allTerms.remove(term);
-    }
+    @Query("SELECT * FROM terms ORDER BY termId ASC")
+    LiveData<List<TermModel>> getAllTerms();
 }

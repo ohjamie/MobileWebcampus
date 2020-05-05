@@ -1,15 +1,20 @@
-package com.example.myapplication.C196PA;
+package com.example.myapplication.viewmodel.activities;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.C196PA.R;
+import com.example.myapplication.database.model.TermModel;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
-    TermListAdapter termListAdapter;
+    com.example.myapplication.C196PA.TermListAdapter termListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.cardView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        termListAdapter = new TermListAdapter(this, getMyList());
+        termListAdapter = new com.example.myapplication.C196PA.TermListAdapter(this, getMyList());
         mRecyclerView.setAdapter(termListAdapter);
     }
 
