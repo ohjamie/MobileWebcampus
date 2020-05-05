@@ -1,7 +1,6 @@
 package com.example.myapplication.database;
 
 import androidx.room.RoomDatabase;
-
 import com.example.myapplication.database.model.CourseModel;
 import com.example.myapplication.database.model.TermModel;
 
