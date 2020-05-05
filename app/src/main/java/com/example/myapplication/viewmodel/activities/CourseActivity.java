@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.C196PA.R;
-import com.example.myapplication.CourseListAdapter;
 import com.example.myapplication.database.model.CourseModel;
+import com.example.myapplication.viewmodel.adapters.CourseListAdapter;
 
 import java.util.ArrayList;
 

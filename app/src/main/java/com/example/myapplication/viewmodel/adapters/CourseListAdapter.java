@@ -6,12 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.myapplication.C196PA.CourseListHolder;
 import com.example.myapplication.C196PA.R;
 import com.example.myapplication.database.model.CourseModel;
+import com.example.myapplication.viewmodel.holders.CourseListHolder;
+
 import java.util.ArrayList;
 
-public class CourseListAdapter extends RecyclerView.Adapter<com.example.myapplication.C196PA.CourseListHolder> {
+public class CourseListAdapter extends RecyclerView.Adapter<CourseListHolder> {
 
     Context c;
     ArrayList<CourseModel> courses;
@@ -23,10 +24,10 @@ public class CourseListAdapter extends RecyclerView.Adapter<com.example.myapplic
 
     @NonNull
     @Override
-    public com.example.myapplication.C196PA.CourseListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CourseListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_courses, null);
 
-        return new com.example.myapplication.C196PA.CourseListHolder(view); // return view to holder class
+        return new CourseListHolder(view); // return view to holder class
     }
 
     @Override

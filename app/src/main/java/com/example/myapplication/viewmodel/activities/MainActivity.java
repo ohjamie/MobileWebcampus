@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.C196PA.R;
 import com.example.myapplication.database.model.TermModel;
+import com.example.myapplication.viewmodel.adapters.TermListAdapter;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
-    com.example.myapplication.C196PA.TermListAdapter termListAdapter;
+    TermListAdapter termListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.cardView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        termListAdapter = new com.example.myapplication.C196PA.TermListAdapter(this, getMyList());
+        termListAdapter = new TermListAdapter(this, getMyList());
         mRecyclerView.setAdapter(termListAdapter);
     }
 

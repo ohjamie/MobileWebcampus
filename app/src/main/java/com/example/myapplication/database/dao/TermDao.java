@@ -7,7 +7,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import com.example.myapplication.database.model.TermModel;
-
 import java.util.List;
 
 @Dao

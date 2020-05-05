@@ -13,10 +13,11 @@ import com.example.myapplication.C196PA.R;
 import com.example.myapplication.database.model.TermModel;
 import com.example.myapplication.viewmodel.activities.CourseActivity;
 import com.example.myapplication.viewmodel.holders.ItemClickListener;
+import com.example.myapplication.viewmodel.holders.TermListHolder;
 
 import java.util.ArrayList;
 
-public class TermListAdapter extends RecyclerView.Adapter<com.example.myapplication.C196PA.TermListHolder> {
+public class TermListAdapter extends RecyclerView.Adapter<TermListHolder> {
 
     Context c;
     ArrayList<TermModel> terms;
@@ -28,14 +29,14 @@ public class TermListAdapter extends RecyclerView.Adapter<com.example.myapplicat
 
     @NonNull
     @Override
-    public com.example.myapplication.C196PA.TermListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TermListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_terms, null);
 
-        return new com.example.myapplication.C196PA.TermListHolder(view); // return view to controller class
+        return new TermListHolder(view); // return view to controller class
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final com.example.myapplication.C196PA.TermListHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final TermListHolder holder, int position) {
         holder.mTermNumber.setText("" + terms.get(position).getTermId());
         holder.mTermTitle.setText(terms.get(position).getTitle());
 
