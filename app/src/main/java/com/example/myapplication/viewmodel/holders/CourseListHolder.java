@@ -2,11 +2,10 @@ package com.example.myapplication.viewmodel.holders;
 
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.myapplication.R;
 
-import com.example.myapplication.C196PA.R;
 
 public class CourseListHolder extends RecyclerView.ViewHolder {
 

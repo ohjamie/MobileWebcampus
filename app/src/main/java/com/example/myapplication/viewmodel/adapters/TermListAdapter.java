@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.C196PA.R;
+import com.example.myapplication.R;
 import com.example.myapplication.database.model.TermModel;
 import com.example.myapplication.viewmodel.activities.CourseActivity;
 import com.example.myapplication.viewmodel.holders.ItemClickListener;

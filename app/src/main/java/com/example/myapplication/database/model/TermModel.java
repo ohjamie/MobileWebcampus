@@ -9,7 +9,7 @@ public class TermModel {
     @PrimaryKey(autoGenerate = true)
     int termId;
 
-    String termTitle;
+    public String termTitle;
 
     public TermModel() {
         setTermId(termId);
@@ -22,7 +22,6 @@ public class TermModel {
     public String getTitle() {
         return termTitle;
     }
-
     public void setTermId(int termId) {
         this.termId = termId;
     }

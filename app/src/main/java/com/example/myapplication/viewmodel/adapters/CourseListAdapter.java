@@ -6,10 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.myapplication.C196PA.R;
+import com.example.myapplication.R;
 import com.example.myapplication.database.model.CourseModel;
 import com.example.myapplication.viewmodel.holders.CourseListHolder;
-
 import java.util.ArrayList;
 
 public class CourseListAdapter extends RecyclerView.Adapter<CourseListHolder> {

@@ -1,15 +1,12 @@
 package com.example.myapplication.viewmodel.activities;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.C196PA.R;
+import com.example.myapplication.R;
 import com.example.myapplication.database.model.TermModel;
 import com.example.myapplication.viewmodel.adapters.TermListAdapter;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

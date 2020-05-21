@@ -2,20 +2,14 @@ package com.example.myapplication.viewmodel.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.C196PA.R;
+import com.example.myapplication.R;
 import com.example.myapplication.database.model.CourseModel;
 import com.example.myapplication.viewmodel.adapters.CourseListAdapter;
-
 import java.util.ArrayList;
-
-// TODO: transfer data from one screen to another
-// video: part 2, 14:25
 
 public class CourseActivity extends AppCompatActivity {
 
