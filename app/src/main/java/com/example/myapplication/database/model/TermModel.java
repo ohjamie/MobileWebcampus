@@ -1,5 +1,6 @@
 package com.example.myapplication.database.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -7,8 +8,10 @@ import androidx.room.PrimaryKey;
 public class TermModel {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo (name = "termId")
     int termId;
 
+    @ColumnInfo (name = "termTitle")
     public String termTitle;
 
     public TermModel() {

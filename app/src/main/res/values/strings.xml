@@ -4,6 +4,7 @@
     <string name="term_num">Term X</string>
     <string name="course_num">Course X</string>
     <string name="course_title">Course Title</string>
+    <string name="button">Button</string>
 
     <string-array name="allTerms">
         <item>Terms</item>
