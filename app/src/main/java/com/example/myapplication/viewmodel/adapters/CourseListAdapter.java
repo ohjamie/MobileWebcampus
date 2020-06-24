@@ -1,38 +1,49 @@
 package com.example.myapplication.viewmodel.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myapplication.R;
-import com.example.myapplication.database.model.CourseModel;
-import com.example.myapplication.viewmodel.holders.CourseListHolder;
+import com.example.myapplication.database.model.Course;
+
 import java.util.ArrayList;
+import java.util.List;
 
-public class CourseListAdapter extends RecyclerView.Adapter<CourseListHolder> {
+public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.CourseListHolder> {
 
-    Context c;
-    ArrayList<CourseModel> courses;
+    private List<Course> courses = new ArrayList<>();
 
-    public CourseListAdapter(Context c, ArrayList<CourseModel> courses) {
-        this.c = c;
-        this.courses = courses;
+    class CourseListHolder extends RecyclerView.ViewHolder {
+
+        public TextView mCourseName;
+        public TextView mDuration;
+
+        public CourseListHolder(@NonNull View itemView) {
+            super(itemView);
+
+            this.mCourseName = itemView.findViewById(R.id.course_name);
+            this.mDuration = itemView.findViewById(R.id.course_duration);
+        }
     }
 
     @NonNull
     @Override
     public CourseListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_courses, null);
-
-        return new CourseListHolder(view); // return view to holder class
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_courses, parent, false);
+        return new CourseListHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CourseListHolder holder, int position) {
-        holder.mCourseNumber.setText("" + courses.get(position).getCourseId());
-        holder.mCourseTitle.setText(courses.get(position).getCourseTitle());
+        Course currentCourse = courses.get(position);
+        holder.mCourseName.setText("" + currentCourse.getCourseName());
+        holder.mDuration.setText(currentCourse.getStart() + " to " + currentCourse.getEnd());
     }
 
     @Override
@@ -40,4 +51,8 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListHolder> {
         return courses.size();
     }
 
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+        notifyDataSetChanged();
+    }
 }

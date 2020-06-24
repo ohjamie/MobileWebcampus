@@ -2,16 +2,20 @@
     <string name="app_name">Student Progress Tracker</string>
     <string name="term_title">Term Title</string>
     <string name="term_num">Term X</string>
-    <string name="course_num">Course X</string>
-    <string name="course_title">Course Title</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_duration">Date to Date</string>
     <string name="button">Button</string>
-
-    <string-array name="allTerms">
-        <item>Terms</item>
-        <item>Term2</item>
-        <item>Term3</item>
-        <item>Term4</item>
-    </string-array>
+    <string name="save">save</string>
+    <string name="available_courses">Available Courses</string>
+    <string name="add_course">Add Course</string>
+    <string name="assessment_name">Assessment</string>
+    <string name="assessment_type">Assessment Type</string>
+    <string name="assessment_desc">description</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="log_in">Log In</string>
+    <string name="term_duration">Date to Date</string>
+    <string name="courseName">Course Name</string>
 
     <string-array name="allCourses">
         <item>Courses Go Here</item>

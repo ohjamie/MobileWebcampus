@@ -9,15 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".viewmodel.activities.CourseActivity"
-            android:parentActivityName=".viewmodel.activities.MainActivity" />
-        <activity android:name=".viewmodel.activities.MainActivity">
+
+        <activity android:name=".viewmodel.activities.LogInActivity"/>
+
+        <activity android:name=".viewmodel.activities.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity android:name=".viewmodel.activities.AddTermActivity"
+            android:parentActivityName=".viewmodel.activities.MainActivity"/>
+
+        <activity android:name=".viewmodel.activities.CourseActivity"
+            android:parentActivityName=".viewmodel.activities.MainActivity"/>
+
+        <activity android:name=".viewmodel.activities.AddCourseActivity"
+            android:parentActivityName=".viewmodel.activities.CourseActivity"/>
+
+    </application>
 </manifest>

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "99e6d8315c1a1dcac78196ce466c2065",
+    "identityHash": "d7888f1bf16c2e582d53bfeae30028d8",
     "entities": [
       {
-        "tableName": "terms",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`termId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `termTitle` TEXT)",
+        "tableName": "term_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`termId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `termTitle` TEXT, `start` TEXT, `end` TEXT)",
         "fields": [
           {
             "fieldPath": "termId",
@@ -19,6 +19,18 @@
             "columnName": "termTitle",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "start",
+            "columnName": "start",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end",
+            "columnName": "end",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -29,12 +41,112 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "course_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`courseId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `courseTermId` INTEGER NOT NULL, `courseMentorId` INTEGER NOT NULL, `courseName` TEXT, `start` TEXT, `end` TEXT, `status` TEXT, `assessment` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "courseId",
+            "columnName": "courseId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "courseTermId",
+            "columnName": "courseTermId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "courseMentorId",
+            "columnName": "courseMentorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "courseName",
+            "columnName": "courseName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "start",
+            "columnName": "start",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "end",
+            "columnName": "end",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "assessment",
+            "columnName": "assessment",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "courseId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "mentor_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mentorId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mentorName` TEXT, `mentorPhone` TEXT, `mentorEmail` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "mentorId",
+            "columnName": "mentorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mentorName",
+            "columnName": "mentorName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mentorPhone",
+            "columnName": "mentorPhone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mentorEmail",
+            "columnName": "mentorEmail",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "mentorId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '99e6d8315c1a1dcac78196ce466c2065')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd7888f1bf16c2e582d53bfeae30028d8')"
     ]
   }
 }

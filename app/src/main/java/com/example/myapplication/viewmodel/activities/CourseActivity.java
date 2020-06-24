@@ -1,17 +1,21 @@
 package com.example.myapplication.viewmodel.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.ActionBar;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
-import com.example.myapplication.database.model.CourseModel;
+import com.example.myapplication.database.model.Course;
+import com.example.myapplication.viewmodel.StudentViewModel;
 import com.example.myapplication.viewmodel.adapters.CourseListAdapter;
-import java.util.ArrayList;
+import java.util.List;
 
 public class CourseActivity extends AppCompatActivity {
+
+    private StudentViewModel studentViewModel;
 
     RecyclerView mRecyclerView;
     CourseListAdapter courseListAdapter;
@@ -21,45 +25,21 @@ public class CourseActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Courses");
 
-        ActionBar actionBar = getSupportActionBar();
-
-        mRecyclerView = findViewById(R.id.cardView);
+        mRecyclerView = findViewById(R.id.mainRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        courseListAdapter = new CourseListAdapter(this, getCourseList());
+        courseListAdapter = new CourseListAdapter();
         mRecyclerView.setAdapter(courseListAdapter);
 
-        Intent intent = getIntent();
-        String mTitle = intent.getStringExtra("iTitle");
-        actionBar.setTitle(mTitle);
-    }
+        studentViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(StudentViewModel.class);
+        studentViewModel.getAllCourses().observe(this, new Observer<List<Course>>() {
+            @Override
+            public void onChanged(@Nullable List<Course> courses) {
+                courseListAdapter.setCourses(courses);
+            }
+        });
 
-    // TODO: Remove test values once database is built
-    private ArrayList<CourseModel> getCourseList() {
-
-        ArrayList<CourseModel> courses = new ArrayList<>();
-
-        CourseModel m = new CourseModel();
-        m.setCourseId(1);
-        m.setCourseTitle("Calculus");
-        courses.add(m);
-
-        m = new CourseModel();
-        m.setCourseId(2);
-        m.setCourseTitle("Organic Chemistry");
-        courses.add(m);
-
-        m = new CourseModel();
-        m.setCourseId(3);
-        m.setCourseTitle("Discrete Mathematics");
-        courses.add(m);
-
-        m = new CourseModel();
-        m.setCourseId(4);
-        m.setCourseTitle("Linear Algebra");
-        courses.add(m);
-
-        return courses;
     }
 }

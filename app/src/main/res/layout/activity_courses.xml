@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:label="Courses"
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true">
@@ -14,7 +15,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/courseNumber"
+            android:id="@+id/course_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
@@ -22,11 +23,11 @@
             android:textStyle="bold"
             android:layout_marginStart="20dp"
             android:layout_marginVertical="10dp"
-            android:text="@string/course_num"
+            android:text="@string/course_name"
             />
 
         <TextView
-            android:id="@+id/courseTitle"
+            android:id="@+id/course_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -34,7 +35,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
-            android:text="@string/course_title"
+            android:text="@string/course_duration"
             />
 
     </RelativeLayout>
