@@ -1,20 +1,27 @@
 package com.example.myapplication.viewmodel.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myapplication.R;
 import com.example.myapplication.database.model.Course;
 import com.example.myapplication.viewmodel.StudentViewModel;
 import com.example.myapplication.viewmodel.adapters.CourseListAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
 public class CourseActivity extends AppCompatActivity {
 
+    public static final int ADD_COURSE_REQUEST = 1;
     private StudentViewModel studentViewModel;
 
     RecyclerView mRecyclerView;
@@ -41,5 +48,14 @@ public class CourseActivity extends AppCompatActivity {
             }
         });
 
+        // Add course button
+        FloatingActionButton addTermButton = findViewById(R.id.floatingBtn);
+        addTermButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CourseActivity.this, AddCourseActivity.class);
+                startActivityForResult(intent, ADD_COURSE_REQUEST);
+            }
+        });
     }
 }
