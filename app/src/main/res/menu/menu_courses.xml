@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/add_term"
-        android:title="Add New Term"/>
-    <item android:id="@+id/add_course"
-        android:title="Add New Course"/>
+        android:title="Edit Term"/>
 </menu>

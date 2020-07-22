@@ -10,32 +10,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".viewmodel.activities.LogInActivity"
-            android:launchMode="singleTop">
+        <activity android:name=".viewmodel.activities.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".viewmodel.activities.AddCourseActivity"
-            android:parentActivityName=".viewmodel.activities.CourseActivity"/>
+        <activity android:name=".viewmodel.activities.TermActivity"/>
 
         <activity android:name=".viewmodel.activities.AddTermActivity"
             android:parentActivityName=".viewmodel.activities.TermActivity"/>
 
-        <activity android:name=".viewmodel.activities.AssessmentsActivity"/>
-
         <activity android:name=".viewmodel.activities.CourseActivity"
             android:parentActivityName=".viewmodel.activities.TermActivity"/>
 
-        <activity android:name=".viewmodel.activities.CourseDetailsActivity"/>
+        <activity android:name=".viewmodel.activities.EditTermActivity"
+            android:parentActivityName=".viewmodel.activities.CourseActivity"/>
 
-        <activity android:name=".viewmodel.activities.EditTermActivity"/>
+        <activity android:name=".viewmodel.activities.CourseDetailsActivity"
+            android:parentActivityName=".viewmodel.activities.CourseActivity"/>
 
-        <activity android:name=".viewmodel.activities.NotesActivity"/>
+        <activity android:name=".viewmodel.activities.AddCourseActivity"
+            android:parentActivityName=".viewmodel.activities.CourseActivity"/>
 
-        <activity android:name=".viewmodel.activities.TermActivity"/>
+        <activity android:name=".viewmodel.activities.AssessmentsActivity"
+            android:parentActivityName=".viewmodel.activities.CourseDetailsActivity"/>
+
+        <activity android:name=".viewmodel.activities.NotesActivity"
+            android:parentActivityName=".viewmodel.activities.CourseDetailsActivity"/>
 
     </application>
 </manifest>

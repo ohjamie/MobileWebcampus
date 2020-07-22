@@ -24,6 +24,9 @@ import java.util.List;
 
 public class TermActivity extends AppCompatActivity {
 
+    public static final String EXTRA_TERM_TITLE =
+            "com.example.myapplication.viewmodel.activities.EXTRA_TERM_TITLE";
+
     public static final int ADD_TERM_REQUEST = 1;
     public static final int COURSE_LIST_REQUEST = 2;
     private StudentViewModel studentViewModel;
@@ -36,6 +39,7 @@ public class TermActivity extends AppCompatActivity {
         // Inflate and initialize term list
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Terms");
 
         mRecyclerView = findViewById(R.id.mainRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,11 +66,14 @@ public class TermActivity extends AppCompatActivity {
             }
         });
 
-        // Click listener for Term to Course List
+        // Term to Course List
         termListAdapter.setOnItemClickListener(new TermListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Term term) {
+                String termTitle = term.getTermTitle();
                 Intent intent = new Intent(TermActivity.this, CourseActivity.class);
+                intent.putExtra(EXTRA_TERM_TITLE, termTitle);
+
                 startActivityForResult(intent, COURSE_LIST_REQUEST);
             }
         });

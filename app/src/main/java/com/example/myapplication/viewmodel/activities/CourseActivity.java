@@ -2,6 +2,8 @@ package com.example.myapplication.viewmodel.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -21,9 +23,12 @@ import java.util.List;
 
 public class CourseActivity extends AppCompatActivity {
 
-    public static final int ADD_COURSE_REQUEST = 1;
-    private StudentViewModel studentViewModel;
+    public static final String EXTRA_COURSE_NAME =
+            "com.example.myapplication.viewmodel.activities.EXTRA_COURSE_NAME";
 
+    public static final int ADD_COURSE_REQUEST = 1;
+    public static final int COURSE_DETAILS_REQUEST = 2;
+    private StudentViewModel studentViewModel;
     RecyclerView mRecyclerView;
     CourseListAdapter courseListAdapter;
 
@@ -32,7 +37,9 @@ public class CourseActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("Courses");
+
+        Intent intent = getIntent();
+        getSupportActionBar().setTitle(intent.getStringExtra(TermActivity.EXTRA_TERM_TITLE));
 
         mRecyclerView = findViewById(R.id.mainRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -49,13 +56,31 @@ public class CourseActivity extends AppCompatActivity {
         });
 
         // Add course button
-        FloatingActionButton addTermButton = findViewById(R.id.floatingBtn);
-        addTermButton.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton addCourseButton = findViewById(R.id.floatingBtn);
+        addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CourseActivity.this, AddCourseActivity.class);
                 startActivityForResult(intent, ADD_COURSE_REQUEST);
             }
         });
+
+        courseListAdapter.setOnItemClickListener(new CourseListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Course course) {
+                String courseName = course.getCourseName();
+                Intent intent = new Intent(CourseActivity.this, CourseDetailsActivity.class);
+                intent.putExtra(EXTRA_COURSE_NAME, courseName);
+
+                startActivityForResult(intent, COURSE_DETAILS_REQUEST);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_courses, menu);
+        return true;
     }
 }

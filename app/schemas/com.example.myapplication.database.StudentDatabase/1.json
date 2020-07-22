@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d7888f1bf16c2e582d53bfeae30028d8",
+    "identityHash": "0c46bf34f8512ba08c95cb5fc7597d50",
     "entities": [
       {
         "tableName": "term_table",
@@ -44,7 +44,7 @@
       },
       {
         "tableName": "course_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`courseId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `courseTermId` INTEGER NOT NULL, `courseMentorId` INTEGER NOT NULL, `courseName` TEXT, `start` TEXT, `end` TEXT, `status` TEXT, `assessment` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`courseId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `courseTermId` INTEGER NOT NULL, `courseMentorId` INTEGER NOT NULL, `courseName` TEXT, `start` TEXT, `end` TEXT, `status` TEXT, `assessment` TEXT, `noteTitle` TEXT, `noteDescription` TEXT)",
         "fields": [
           {
             "fieldPath": "courseId",
@@ -91,6 +91,18 @@
           {
             "fieldPath": "assessment",
             "columnName": "assessment",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noteTitle",
+            "columnName": "noteTitle",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noteDescription",
+            "columnName": "noteDescription",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -146,7 +158,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd7888f1bf16c2e582d53bfeae30028d8')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0c46bf34f8512ba08c95cb5fc7597d50')"
     ]
   }
 }

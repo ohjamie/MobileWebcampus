@@ -4,19 +4,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.myapplication.R;
 import com.example.myapplication.database.model.Course;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.CourseListHolder> {
 
     private List<Course> courses = new ArrayList<>();
+    private OnItemClickListener listener;
 
     class CourseListHolder extends RecyclerView.ViewHolder {
 
@@ -28,7 +26,24 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Co
 
             this.mCourseName = itemView.findViewById(R.id.course_name);
             this.mDuration = itemView.findViewById(R.id.course_duration);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(courses.get(position));
+                    }
+                }
+            });
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Course course);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull

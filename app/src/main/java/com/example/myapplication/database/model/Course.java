@@ -28,6 +28,8 @@ public class Course {
     public String end;
     public String status;
     public String assessment;
+    public String noteTitle;
+    public String noteDescription;
 
     public Course() {
         setCourseId(courseId);
@@ -38,6 +40,8 @@ public class Course {
         setEnd(end);
         setStatus(status);
         setAssessment(assessment);
+        setNoteTitle(noteTitle);
+        setNoteDescription(noteDescription);
     }
 
     public int getCourseId() {
@@ -102,5 +106,21 @@ public class Course {
 
     public void setAssessment(String assessment) {
         this.assessment = assessment;
+    }
+
+    public String getNoteTitle() {
+        return noteTitle;
+    }
+
+    public void setNoteTitle(String noteTitle) {
+        this.noteTitle = noteTitle;
+    }
+
+    public String getNoteDescription() {
+        return noteDescription;
+    }
+
+    public void setNoteDescription(String noteDescription) {
+        this.noteDescription = noteDescription;
     }
 }
