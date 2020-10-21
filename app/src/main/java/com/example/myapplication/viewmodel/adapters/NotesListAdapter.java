@@ -4,16 +4,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myapplication.R;
 import com.example.myapplication.database.model.Course;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NotesListAdapter extends RecyclerView.Adapter<NotesListAdapter.NotesListHolder> {
 
     private List<Course> courses = new ArrayList<>();
+    private TermListAdapter.OnItemClickListener listener;
 
     class NotesListHolder extends RecyclerView.ViewHolder{
         TextView noteTitle;
@@ -25,6 +29,14 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesListAdapter.Note
             this.noteTitle = itemView.findViewById(R.id.note_title);
             this.description = itemView.findViewById(R.id.note_description);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Course course);
+    }
+
+    public void setOnItemClickListener(TermListAdapter.OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull

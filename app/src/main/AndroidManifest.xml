@@ -40,5 +40,8 @@
         <activity android:name=".viewmodel.activities.NotesActivity"
             android:parentActivityName=".viewmodel.activities.CourseDetailsActivity"/>
 
+        <activity android:name=".viewmodel.activities.AddNoteActivity"
+            android:parentActivityName=".viewmodel.activities.NotesActivity"/>
+
     </application>
 </manifest>

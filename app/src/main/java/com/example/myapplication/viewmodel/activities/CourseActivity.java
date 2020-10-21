@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -29,6 +30,7 @@ public class CourseActivity extends AppCompatActivity {
     public static final int ADD_COURSE_REQUEST = 1;
     public static final int COURSE_DETAILS_REQUEST = 2;
     private StudentViewModel studentViewModel;
+    MenuItem editTermButton;
     RecyclerView mRecyclerView;
     CourseListAdapter courseListAdapter;
 
@@ -75,6 +77,7 @@ public class CourseActivity extends AppCompatActivity {
                 startActivityForResult(intent, COURSE_DETAILS_REQUEST);
             }
         });
+
     }
 
     @Override
@@ -82,5 +85,19 @@ public class CourseActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_courses, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.edit_term) {
+            editTerm();
+        }
+        return true;
+    }
+
+    public void editTerm() {
+        Intent intent = new Intent(CourseActivity.this, EditTermActivity.class);
+
+        startActivityForResult(intent, 1);
     }
 }
