@@ -92,6 +92,7 @@ public class CourseActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.edit_term) {
             editTerm();
         }
+<<<<<<< HEAD
         return true;
     }
 
@@ -99,5 +100,11 @@ public class CourseActivity extends AppCompatActivity {
         Intent intent = new Intent(CourseActivity.this, EditTermActivity.class);
 
         startActivityForResult(intent, 1);
+=======
+    }
+
+    public void editTerm() {
+        // TODO
+>>>>>>> 5855c94a6917dba07d19c8841d561122e8d03055
     }
 }

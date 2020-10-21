@@ -14,5 +14,9 @@ public class AddNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addnote);
         getSupportActionBar().setTitle("Add Note");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5855c94a6917dba07d19c8841d561122e8d03055
     }
 }
